@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed-Distance-Time Flashcards</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+      animation: pop 0.6s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .question {
+      font-size: 1.5rem;
+      color: #444;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff7675;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #d63031;
+    }
+
+    .fun-title {
+      font-size: 2rem;
+      color: #6c5ce7;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="fun-title">🚀 Speed-Distance-Time Challenge! 🏁</h1>
+  <div class="card">
+    <div class="question" id="question">Loading...</div>
+    <div class="answer" id="answer"></div>
+    <button onclick="revealAnswer()">Show Answer</button>
+    <button onclick="nextCard()">Next Card</button>
+  </div>
+
+  <script>
+    const cards = [
+      {
+        question: "If you travel at 75 km/h for 0.2 hours, how far will you go?",
+        answer: "15.0 km"
+      },
+      {
+        question: "How long will it take to travel 15.0 km at 75 km/h?",
+        answer: "0.2 hours"
+      },
+      {
+        question: "If you travel 15.0 km in 0.2 hours, what is your speed?",
+        answer: "75 km/h"
+      },
+      {
+        question: "If you travel at 40 km/h for 0.5 hours, how far will you go?",
+        answer: "20.0 km"
+      },
+      {
+        question: "How long will it take to travel 20.0 km at 40 km/h?",
+        answer: "0.5 hours"
+      },
+      {
+        question: "1/2 in decimal is...?",
+        answer: "0.5 (30 min / 1800 sec)"
+      },
+      {
+        question: "1/3 in decimal is...?",
+        answer: "0.333 (20 min / ~1200 sec)"
+      },
+      {
+        question: "1/4 in hours is...?",
+        answer: "0.25 hours (15 min / 900 sec)"
+      },
+      {
+        question: "1/5 in seconds is...?",
+        answer: "720 sec"
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function renderCard() {
+      document.getElementById("question").textContent = cards[currentIndex].question;
+      document.getElementById("answer").style.display = "none";
+      document.getElementById("answer").textContent = cards[currentIndex].answer;
+    }
+
+    function revealAnswer() {
+      document.getElementById("answer").style.display = "block";
+    }
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      renderCard();
+    }
+
+    window.onload = renderCard;
+  </script>
+</body>
+</html>
