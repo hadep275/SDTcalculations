@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Speed-Distance-Time Flashcards</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      background: linear-gradient(135deg, #ffecd2 0%, #6e40c9 100%);
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -16,6 +17,18 @@
       height: 100vh;
       overflow: hidden;
     }
+
+    .logo-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo {
+  max-width: 150px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
     .card {
       background: white;
@@ -72,6 +85,9 @@
   </style>
 </head>
 <body>
+  <div class="logo-wrapper">
+    <img src="SDT_logo.jpeg" alt="SDT Logo" class="logo">
+  </div>
   <h1 class="fun-title">🚀 Speed-Distance-Time Challenge! 🏁</h1>
   <div class="card">
     <div class="question" id="question">Loading...</div>
