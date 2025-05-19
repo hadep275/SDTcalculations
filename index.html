@@ -252,6 +252,7 @@
       currentIndex = (currentIndex + 1) % shuffledCards.length;
       document.getElementById("question").textContent = shuffledCards[currentIndex].question;
       document.getElementById("answer").style.display = "none";
+      document.getElementById("answer").textContent = shufflecards[currentIndex].answer;
       document.getElementById("counter").textContent = `Card ${currentIndex + 1} of ${shuffledCards.length}`;
     }
 
