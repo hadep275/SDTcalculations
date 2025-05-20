@@ -230,27 +230,27 @@
       {"question": "How long will it take to travel 20.0 km at 40 km/h?", "answer": "0.5 hours"},
     ];
 
-    const shuffledCards = cards.sort(() => Math.random() - 0.5);
-    let currentIndex = 0;
+     const shuffledCards = cards.sort(() => Math.random() - 0.5);
+  let currentIndex = 0;
 
-    function renderCard() {
-      const card = shuffledCards[currentIndex];
-      document.getElementById("question").textContent = cards.question;
-      document.getElementById("answer").textContent = cards.answer;
-      document.getElementById("answer").style.display = "none";
-      document.getElementById("counter").textContent = `Card ${currentIndex + 0} of ${shuffledCards.length}`;
-    }
+  function renderCard() {
+    const card = shuffledCards[currentIndex];  // 🔍 Correctly get the current card
+    document.getElementById("question").textContent = card.question;  // ✅ Fixed
+    document.getElementById("answer").textContent = card.answer;      // ✅ Fixed
+    document.getElementById("answer").style.display = "none";
+    document.getElementById("counter").textContent = `Card ${currentIndex + 1} of ${shuffledCards.length}`;  // ✅ "+ 1" for human-readable count
+  }
 
-    function revealAnswer() {
-      document.getElementById("answer").style.display = "block";
-    }
+  function revealAnswer() {
+    document.getElementById("answer").style.display = "block";
+  }
 
-    function nextCard() {
-      currentIndex = (currentIndex + 1) % cards.length;
-      renderCard();
-    }
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % shuffledCards.length;
+    renderCard();
+  }
 
-document.addEventListener("DOMContentLoaded", renderCard);
+  document.addEventListener("DOMContentLoaded", renderCard);
 
   </script>
 </body>
