@@ -230,12 +230,15 @@
       {"question": "How long will it take to travel 20.0 km at 40 km/h?", "answer": "0.5 hours"},
     ];
 
+    const shuffledCards = cards.sort(() => Math.random() - 0.5);
     let currentIndex = 0;
 
     function renderCard() {
-      document.getElementById("question").textContent = cards[currentIndex].question;
+      const card = shuffledCards[currentIndex];
+      document.getElementById("question").textContent = cards.question;
+      document.getElementById("answer").textContent = cards.answer;
       document.getElementById("answer").style.display = "none";
-      document.getElementById("answer").textContent = cards[currentIndex].answer;
+      document.getElementById("counter").textContent = `Card ${currentIndex + 0} of ${shuffledCards.length}`;
     }
 
     function revealAnswer() {
@@ -247,16 +250,6 @@
       renderCard();
     }
 
-    const shuffledCards = cards.sort(() => Math.random() - 0.5);
-    function nextCard() {
-      currentIndex = (currentIndex + 1) % shuffledCards.length;
-      document.getElementById("question").textContent = shuffledCards[currentIndex].question;
-      document.getElementById("answer").style.display = "none";
-      document.getElementById("answer").textContent = shufflecards[currentIndex].answer;
-      document.getElementById("counter").textContent = `Card ${currentIndex + 1} of ${shuffledCards.length}`;
-    }
-
-    window.onload = renderCard;
 document.addEventListener("DOMContentLoaded", () => {
   nextCard();
 });
